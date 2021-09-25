@@ -46,36 +46,10 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="text-center mt-5">Crud</h1>
+        <h1 className="text-center my-5 border border-warning">Crud</h1>
         <div className="row">
-          <div className="col-8">
-            <h4 className="text-center">Lista de tareas</h4>
-            <ul className="list-group">
-              {tareas.length === 0 ? (
-                <li className="list-group-item">No Hay Tareas</li>
-              ) : (
-                tareas.map((item) => (
-                  <li className="list-group-item" key={item.id}>
-                    <span className="lead"> {item.NombreTarea} </span>
-                    <button
-                      className="btn btn-danger btn-sm float-right mx-2"
-                      onClick={() => eliminarTarea(item.id)}
-                    >
-                      Eliminar
-                    </button>
-                    <button
-                      className="btn btn-warning btn-sm float-right mx-2"
-                      onClick={() => editar(item)}
-                    >
-                      Editar
-                    </button>
-                  </li>
-                ))
-              )}
-            </ul>
-          </div>
-          <div className="col-4">
-            <h4 className="text-center">
+          <div className="col-12 col-md-4">
+            <h4 className="text-center my-2 border border-warning p-2">
               {modoEdicion ? 'Editar Tarea' : 'Agregar Tarea'}
             </h4>
             <form onSubmit={modoEdicion ? editarTarea : agregarTarea}>
@@ -99,6 +73,34 @@ function App() {
                 </button>
               )}
             </form>
+          </div>
+          <div className=" col-12 col-md-8">
+            <h4 className="text-center my-2 border border-warning">
+              Lista de tareas
+            </h4>
+            <ul className="list-group">
+              {tareas.length === 0 ? (
+                <li className="list-group-item">No Hay Tareas</li>
+              ) : (
+                tareas.map((item) => (
+                  <li className="list-group-item" key={item.id}>
+                    <span className="lead"> {item.NombreTarea} </span>
+                    <button
+                      className="btn btn-danger btn-sm float-right mx-2"
+                      onClick={() => eliminarTarea(item.id)}
+                    >
+                      Eliminar
+                    </button>
+                    <button
+                      className="btn btn-warning btn-sm float-right mx-2"
+                      onClick={() => editar(item)}
+                    >
+                      Editar
+                    </button>
+                  </li>
+                ))
+              )}
+            </ul>
           </div>
         </div>
       </div>
